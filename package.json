@@ -1,13 +1,13 @@
 {
-  "name": "lit-template-list-demo",
+  "name": "list-lit-template",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "description": "A comprehensive demo of Lit components with conditional templates, UUID management, and context sharing",
-  "homepage": "https://lbompart.github.io/lit-template-list-demo",
+  "homepage": "https://lbompart.github.io/list-lit-template",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lbompart/lit-template-list-demo.git"
+    "url": "https://github.com/lbompart/list-lit-template.git"
   },
   "keywords": [
     "lit",

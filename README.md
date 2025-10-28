@@ -2,9 +2,9 @@
 
 A comprehensive demonstration of Lit web components featuring conditional templates, UUID management, and context sharing.
 
-[![Deploy to GitHub Pages](https://github.com/lbompart/lit-template-list-demo/actions/workflows/deploy.yml/badge.svg)](https://github.com/lbompart/lit-template-list-demo/actions/workflows/deploy.yml)
+[![Deploy to GitHub Pages](https://github.com/lbompart/list-lit-template/actions/workflows/deploy.yml/badge.svg)](https://github.com/lbompart/list-lit-template/actions/workflows/deploy.yml)
 
-## 🚀 [Live Demo](https://lbompart.github.io/lit-template-list-demo)
+## 🚀 [Live Demo](https://lbompart.github.io/list-lit-template)
 
 ## ✨ Features
 
@@ -46,8 +46,8 @@ A comprehensive demonstration of Lit web components featuring conditional templa
 
 ```bash
 # Clone the repository
-git clone https://github.com/lbompart/lit-template-list-demo.git
-cd lit-template-list-demo
+git clone https://github.com/lbompart/list-lit-template.git
+cd list-lit-template
 
 # Install dependencies
 npm install
