@@ -1,0 +1,35 @@
+{
+  "name": "lit-template-list-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A comprehensive demo of Lit components with conditional templates, UUID management, and context sharing",
+  "homepage": "https://lbompart.github.io/lit-template-list-demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lbompart/lit-template-list-demo.git"
+  },
+  "keywords": [
+    "lit",
+    "web-components",
+    "templates",
+    "context",
+    "typescript",
+    "demo"
+  ],
+  "author": "lbompart",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@lit/context": "^1.1.6",
+    "lit": "^3.3.1"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7"
+  }
+}

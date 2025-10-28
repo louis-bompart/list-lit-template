@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lit Template List Demo</title>
+    <link rel="stylesheet" href="./src/index.css" />
+    <script type="module" src="/src/my-list.ts"></script>
+    <script type="module" src="/src/my-result.ts"></script>
+    <script type="module" src="/src/my-result-template.ts"></script>
+    <script type="module" src="/src/my-result-component.ts"></script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: #fafafa;
+        color: #2d3748;
+        line-height: 1.6;
+      }
+      
+      .demo-section {
+        background: #ffffff;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+        border: 1px solid #e2e8f0;
+      }
+      
+      .controls {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: #f7fafc;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+      }
+      
+      .controls label {
+        display: block;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+        color: #4a5568;
+        font-size: 0.95rem;
+      }
+      
+      .controls input {
+        padding: 0.75rem;
+        border: 1px solid #cbd5e0;
+        border-radius: 6px;
+        font-size: 1rem;
+        background: white;
+        color: #2d3748;
+        transition: border-color 0.2s ease;
+      }
+      
+      .controls input:focus {
+        outline: none;
+        border-color: #4299e1;
+        box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+      }
+      
+      h1, h2 {
+        color: #2d3748;
+        font-weight: 700;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      pre {
+        background: #f7fafc;
+        padding: 1rem;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        border: 1px solid #e2e8f0;
+        color: #4a5568;
+      }
+      
+      code {
+        background: #edf2f7;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        color: #4a5568;
+        border: 1px solid #e2e8f0;
+      }
+      
+      .description {
+        color: #4a5568;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        font-size: 1rem;
+      }
+      
+      /* Custom styles for the list items */
+      my-list ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      my-list li {
+        margin-bottom: 1rem;
+      }
+      
+      /* Improve the template item styling */
+      my-list my-result > div {
+        transition: all 0.2s ease;
+        border-radius: 8px !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+      }
+      
+      my-list my-result > div:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
+      }
+      
+      /* First item - softer blue */
+      my-list my-result > div[style*="background: #e3f2fd"] {
+        background: #f0f8ff !important;
+        border-left: 4px solid #64b5f6 !important;
+        color: #1565c0 !important;
+      }
+      
+      /* Odd items - softer purple */
+      my-list my-result > div[style*="background: #f3e5f5"] {
+        background: #faf5ff !important;
+        border-left: 4px solid #ab47bc !important;
+        color: #6a1b9a !important;
+      }
+      
+      /* Even items - softer green */
+      my-list my-result > div[style*="background: #e8f5e8"] {
+        background: #f0fff4 !important;
+        border-left: 4px solid #66bb6a !important;
+        color: #2e7d32 !important;
+      }
+      
+      /* Default items - softer orange */
+      my-list my-result > div[style*="background: #fff3e0"] {
+        background: #fffaf0 !important;
+        border-left: 4px solid #ffb74d !important;
+        color: #e65100 !important;
+      }
+      
+      strong {
+        color: #2d3748;
+        font-weight: 600;
+      }
+      
+      ol, ul {
+        color: #4a5568;
+      }
+      
+      ol li, ul li {
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎯 Lit Template List Demo</h1>
+    
+    <div class="demo-section">
+      <h2>Interactive Demo</h2>
+      <div class="description">
+        This demonstrates a list component with conditional templates, UUID management, and context sharing.
+        Adjust the number of results to see how UUIDs are maintained and templates are applied.
+      </div>
+      
+      <div class="controls">
+        <label for="numberOfResults">Number of Results:</label>
+        <input type="number" id="numberOfResults" value="5" min="0" max="20">
+      </div>
+      
+      <my-list id="demoList" numberOfResults="5">
+        <!-- Template for the first item (index 0) -->
+        <my-result-template when="0">
+          <template>
+            <my-result>
+              <div style="background: #e3f2fd; padding: 1rem; border-left: 4px solid #2196f3;">
+                <h3>🥇 First Item</h3>
+                <p>This is the special first item template (when="0")</p>
+                <my-result-component></my-result-component>
+              </div>
+            </my-result>
+          </template>
+        </my-result-template>
+        
+        <!-- Template for odd indices -->
+        <my-result-template when="odd">
+          <template>
+            <my-result>
+              <div style="background: #f3e5f5; padding: 1rem; border-left: 4px solid #9c27b0;">
+                <h3>🔮 Odd Item</h3>
+                <p>This template is used for odd indices (when="odd")</p>
+                <my-result-component></my-result-component>
+              </div>
+            </my-result>
+          </template>
+        </my-result-template>
+        
+        <!-- Template for even indices -->
+        <my-result-template when="even">
+          <template>
+            <my-result>
+              <div style="background: #e8f5e8; padding: 1rem; border-left: 4px solid #4caf50;">
+                <h3>🌿 Even Item</h3>
+                <p>This template is used for even indices (when="even")</p>
+                <my-result-component></my-result-component>
+              </div>
+            </my-result>
+          </template>
+        </my-result-template>
+        
+        <!-- Fallback template -->
+        <my-result-template>
+          <template>
+            <my-result>
+              <div style="background: #fff3e0; padding: 1rem; border-left: 4px solid #ff9800;">
+                <h3>⭐ Default Item</h3>
+                <p>This is the fallback template (when=undefined)</p>
+                <my-result-component></my-result-component>
+              </div>
+            </my-result>
+          </template>
+        </my-result-template>
+      </my-list>
+    </div>
+    
+    <div class="demo-section">
+      <h2>How It Works</h2>
+      <div class="description">
+        <strong>Template Priority System:</strong>
+        <ol>
+          <li><strong>Exact Match:</strong> Templates with <code>when="0"</code> match index 0 exactly</li>
+          <li><strong>Odd/Even:</strong> Templates with <code>when="odd"</code> or <code>when="even"</code> match based on index parity</li>
+          <li><strong>Fallback:</strong> Templates with no <code>when</code> attribute serve as defaults</li>
+        </ol>
+        
+        <strong>Context System:</strong>
+        <ul>
+          <li><code>my-list</code> provides UUIDs array via context</li>
+          <li><code>my-result</code> provides index via context</li>
+          <li><code>my-result-component</code> consumes both to display the correct UUID</li>
+        </ul>
+        
+        <strong>UUID Management:</strong>
+        <ul>
+          <li>UUIDs are stable - existing ones don't change when the list grows/shrinks</li>
+          <li>New UUIDs are generated when the list grows</li>
+          <li>Excess UUIDs are removed when the list shrinks</li>
+        </ul>
+      </div>
+    </div>
+    
+    <script>
+      // Add interactivity to the demo
+      const numberOfResultsInput = document.getElementById('numberOfResults');
+      const demoList = document.getElementById('demoList');
+      
+      numberOfResultsInput.addEventListener('input', (e) => {
+        const value = parseInt(e.target.value) || 0;
+        demoList.numberOfResults = value;
+      });
+    </script>
+  </body>
+</html>
